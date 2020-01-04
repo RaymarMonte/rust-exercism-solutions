@@ -1,4 +1,4 @@
-extern crate unicode_segmentation;
+//extern crate unicode_segmentation; No longer needed in the 2018 edition of rust
 
 use unicode_segmentation::UnicodeSegmentation;
 
