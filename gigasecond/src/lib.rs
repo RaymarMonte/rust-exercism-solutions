@@ -1,7 +1,9 @@
 use chrono::{DateTime, Utc};
-use time::Duration;
+use chrono::Duration;
+
+const ONE_BILLION_SECONDS: i64 = 1_000_000_000;
 
 // Returns a Utc DateTime one billion seconds after start.
 pub fn after(start: DateTime<Utc>) -> DateTime<Utc> {
-    start.checked_add_signed(Duration::seconds(1000000000)).unwrap()
+    start + Duration::seconds(ONE_BILLION_SECONDS)
 }
