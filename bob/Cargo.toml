@@ -2,3 +2,6 @@
 edition = "2018"
 name = "bob"
 version = "1.4.0"
+
+[dependencies]
+regex = "1"
