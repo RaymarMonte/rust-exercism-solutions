@@ -1,5 +1,6 @@
 use std::fmt;
 
+#[derive(PartialEq, Debug)]
 pub struct Clock {
     hours: i32, minutes: i32,
 }
@@ -7,16 +8,14 @@ pub struct Clock {
 impl Clock {
 
     pub fn new(hours: i32, minutes: i32) -> Self {
-        Self {hours: hours, minutes: minutes}
+        Clock::get_normalized_value(hours, minutes)
     }
 
     pub fn add_minutes(&self, minutes: i32) -> Self {
-        Self {hours: self.hours, minutes: self.minutes + minutes}
+        Clock::get_normalized_value(self.hours, self.minutes + minutes)
     }
 
-    pub fn get_normalized_value(&self) -> Self {
-        let mut hours = self.hours;
-        let mut minutes = self.minutes;
+    pub fn get_normalized_value(mut hours: i32, mut minutes: i32) -> Self {
         hours += minutes.div_euclid(60);
         hours = hours.rem_euclid(24);
         minutes = minutes.rem_euclid(60);
@@ -27,22 +26,6 @@ impl Clock {
 
 impl fmt::Display for Clock {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        let normalized = self.get_normalized_value();
-        write!(f, "{:02}:{:02}", normalized.hours, normalized.minutes)
-    }
-}
-
-impl fmt::Debug for Clock {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        let normalized = self.get_normalized_value();
-        write!(f, "Clock {{ hours: {:02}, minutes: {:02} }}", normalized.hours, normalized.minutes)
-    }
-}
-
-impl PartialEq for Clock {
-    fn eq(&self, other: &Self) -> bool {
-        let normalized_self = self.get_normalized_value();
-        let normalized_other = other.get_normalized_value();
-        (normalized_self.hours == normalized_other.hours) && (normalized_self.minutes == normalized_other.minutes)
+        write!(f, "{:02}:{:02}", self.hours, self.minutes)
     }
 }
