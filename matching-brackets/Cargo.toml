@@ -1,3 +1,6 @@
+[features]
+grapheme = []
+
 [package]
 edition = "2018"
 name = "matching-brackets"
