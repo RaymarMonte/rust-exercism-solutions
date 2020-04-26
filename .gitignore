@@ -1,3 +1,4 @@
 # Ignore exercism-related files
 
 **/.exercism/
+**/.vscode/
