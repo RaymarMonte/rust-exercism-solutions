@@ -1,0 +1,10 @@
+Keyword "as" - Convert between primitive types. Ex: usize as u32, u32 as usize
+Closure - Anonymous functions
+<iterator>.map() - Converts an iterator into another iterator by applying a closure to each element
+(1..9) - A range that starts from 1 to 8
+(1..=9) - A range that starts from 1 to 9
+(1..=9).rev() - A range that starts from 9 to 1
+#[derive(PartialEq)] - Use on structs to implement equality comparisons
+#[derive(Debug)] - Use on structs to use std::fmt traits
+<div|rem>_euclid() - Use to perform euclidian division
+impl fmt::Display for <struct> - Implements to_string() method on the struct
