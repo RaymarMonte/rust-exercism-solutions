@@ -8,3 +8,5 @@ Closure - Anonymous functions
 #[derive(Debug)] - Use on structs to use std::fmt traits
 <div|rem>_euclid() - Use to perform euclidian division
 impl fmt::Display for <struct> - Implements to_string() method on the struct
+<enum>::<enum_item> - Use to reference an item of an enum
+<method>::<T>() - Use to convert the type of the return value of a method
