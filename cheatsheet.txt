@@ -10,3 +10,6 @@ Closure - Anonymous functions
 impl fmt::Display for <struct> - Implements to_string() method on the struct
 <enum>::<enum_item> - Use to reference an item of an enum
 <method>::<T>() - Use to convert the type of the return value of a method
+<iterator>.enumerate() - Returns a tuple consisting of the index and the actual data
+Box<T> - A heap pointer. Use to store data to heap instead of stack.
+<option>.take() - Get the value out of an option and replace it with None.
