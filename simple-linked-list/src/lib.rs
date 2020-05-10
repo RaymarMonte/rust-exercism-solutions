@@ -16,12 +16,12 @@ impl<T> SimpleLinkedList<T> {
 
     pub fn len(&self) -> usize {
         let mut len: usize = 0;
-        let mut iterator = self.head.as_ref();
+        let mut iterator = &(self.head);
         loop {
             iterator = match iterator {
                 Some(x) => {
                     len += 1;
-                    x.next.as_ref()
+                    &(x.next)
                 },
                 None => {
                     break;
@@ -48,7 +48,7 @@ impl<T> SimpleLinkedList<T> {
     }
 
     pub fn peek(&self) -> Option<&T> {
-        match self.head.as_ref() {
+        match &(self.head) {
             Some(x) => Some(&x.data),
             None => None
         }
